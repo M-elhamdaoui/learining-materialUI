@@ -1,32 +1,16 @@
 import React from "react";
-import { Button } from "@material-ui/core";
-import {Person} from "@material-ui/icons"
+
 import { makeStyles } from "@material-ui/core";
-const useStyles = makeStyles({
-  btn:{
-    fontSize:12,
-    color:"red",
-  }
-})
+import Navbar from "./Components/Navbar";
+
+const useStyles = makeStyles((theme) => ({
+
+}))
 function App() {
- const classes=useStyles();
- console.log(classes.btn)
+  const classes = useStyles();
   return (
-    
     <div>
-      
-      <Button
-      
-      className={classes.btn}
-      startIcon={<Person />}
-      variant='contained'
-       size='large'
-       color="Primary"
-      
-       
-       >
-        Material UI
-      </Button>
+      <Navbar />
     </div>
   );
 }
