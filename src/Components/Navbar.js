@@ -66,7 +66,7 @@ function Navbar() {
   const [open , setOpen]=useState(false)
   const classes = useStyles({open});
   return (
-    <AppBar>
+    <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
         <Typography variant='h6' className={classes.logoLG}>
           MY LOGO
