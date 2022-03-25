@@ -1,5 +1,5 @@
-import React from "react";
-import { Search ,  Mail, Notifications } from "@material-ui/icons";
+import React,{useState} from "react";
+import { Search ,  Mail, Notifications, Cancel } from "@material-ui/icons";
 import { alpha, AppBar, Avatar, Badge, InputBase, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import image from "../assets/images/Webp.net-compress-image.jpg";
 const useStyles = makeStyles((theme) => ({
@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   search: {
-    display: "flex",
     alignItems: "center",
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     "&:hover": {
@@ -16,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
     },
     borderRadius: theme.shape.borderRadius,
     width: "40%",
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "flex",
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      display: (props) => (props.open ? "flex" : "none"),
+      width: "70%",
     },
   },
   logoLG: {
@@ -40,21 +40,31 @@ const useStyles = makeStyles((theme) => ({
   },
   icons: {
     display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]:{
+      display: (props) => (props.open ? "none" : "flex"),
+    }
   },
   badge: {
     marginRight: theme.spacing(2),
   },
   searchIcon: {
-    display: "block",
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
+    display: "none",
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      display: (props) => (props.open ? "none" : "block"),
+    },
+  },
+  cancel: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: (props) => (props.open ? "block" : "none"),
     },
   },
 }));
 function Navbar() {
-  const classes = useStyles();
+  const [open , setOpen]=useState(false)
+  const classes = useStyles({open});
   return (
     <AppBar>
       <Toolbar className={classes.toolbar}>
@@ -68,13 +78,17 @@ function Navbar() {
         <div className={classes.search}>
           <Search />
           <InputBase placeholder='search...' className={classes.input} />
+          <Cancel onClick={()=>setOpen(false)} className={classes.cancel} />
         </div>
         <div className={classes.icons}>
-            <Search className={classes.searchIcon} />
+          <Search
+            className={classes.searchIcon}
+            onClick={() => setOpen(true)}
+          />
           <Badge badgeContent={1} color='secondary' className={classes.badge}>
             <Mail />
           </Badge>
-          <Badge badgeContent={3} color='secondary'  className={classes.badge}>
+          <Badge badgeContent={3} color='secondary' className={classes.badge}>
             <Notifications />
           </Badge>
           <Avatar alt='Mohammed EL hamdaoui' src={image} />
