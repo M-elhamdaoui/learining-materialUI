@@ -1,11 +1,13 @@
 import React from "react";
 
-import { Container, List, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 import { Bookmark, ExitToApp, Home, ListAlt, Person, Settings, Storefront, TabletMac } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
+    position:"sticky",
+    top:"0",
     paddingTop: theme.spacing(10),
     backgroundColor: theme.palette.primary.main,
     color: "white",
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function Leftbar() {
   const classes = useStyles();
-  return <Container className={classes.container} >
+  return <Container  className={classes.container} >
     <div className={classes.item} >
       <Home className={classes.icon} />
       <Typography className={classes.text} > Homepage </Typography>
