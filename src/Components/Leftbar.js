@@ -48,31 +48,31 @@ function Leftbar() {
     </div>
     <div className={classes.item} >
       <Person className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Friends </Typography>
     </div>
     <div className={classes.item} >
       <ListAlt className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Todos </Typography>
     </div>
     <div className={classes.item} >
       <TabletMac className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Contacts </Typography>
     </div>
     <div className={classes.item} >
       <Bookmark className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Saved  </Typography>
     </div>
     <div className={classes.item} >
       <Storefront className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Market </Typography>
     </div>
     <div className={classes.item} >  
       <Settings className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Settings </Typography>
     </div>
     <div className={classes.item} >
       <ExitToApp className={classes.icon} />
-      <Typography className={classes.text} > Homepage </Typography>
+      <Typography className={classes.text} > Logout </Typography>
     </div>
   </Container>;
 }

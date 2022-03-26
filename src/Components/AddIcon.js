@@ -13,15 +13,13 @@ import {
   Snackbar,
   TextField,
   Tooltip,
-  
- 
 } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
-import MuiAlert from "@material-ui/lab/Alert"
+import MuiAlert from "@material-ui/lab/Alert";
 
-const Alert =(props)=>{
-    return <MuiAlert elevation={6} variant="filled" {...props} />
-}
+const Alert = (props) => {
+  return <MuiAlert elevation={6} variant='filled' {...props} />;
+};
 
 const useStyles = makeStyles((theme) => ({
   add: {
@@ -31,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     position: "absolute",
-   
+
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -47,18 +45,21 @@ const useStyles = makeStyles((theme) => ({
       height: "100vh",
     },
   },
-  form :{
-      padding: theme.spacing(3),
+  form: {
+    padding: theme.spacing(3),
   },
-  item :{
-      marginBottom:theme.spacing(3)
+  item: {
+    marginBottom: theme.spacing(3),
+  },
+  snackbar:{
+    zIndex:theme.zIndex.modal+1,
   }
 }));
 
 function AddIcon() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [openSnackbar,setOpenSnackbar]=useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   return (
     <>
       <Tooltip
@@ -75,7 +76,13 @@ function AddIcon() {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'>
         <Box className={classes.box}>
-          <form className={classes.form} autoComplete='off' onSubmit={(e) => {e.preventDefault(); setOpenSnackbar(true)}}>
+          <form
+            className={classes.form}
+            autoComplete='off'
+            onSubmit={(e) => {
+              e.preventDefault();
+              setOpenSnackbar(true);
+            }}>
             <div className={classes.item}>
               <TextField
                 id='standard-basic'
@@ -133,7 +140,7 @@ function AddIcon() {
               <Button
                 variant='outlined'
                 color='primary'
-                type="submit"
+                type='submit'
                 style={{ marginRight: 20 }}>
                 Create
               </Button>
@@ -147,8 +154,16 @@ function AddIcon() {
           </form>
         </Box>
       </Modal>
-      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={()=>setOpenSnackbar(false)}>
-        <Alert onClose={()=>setOpenSnackbar(false)} severity='success' sx={{ width: "100%" }}>
+      <Snackbar
+        open={openSnackbar}
+        className={classes.snackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}>
+        <Alert
+          onClose={() => setOpenSnackbar(false)}
+          severity='success'
+          sx={{ width: "100%" }}>
           Post has been added!
         </Alert>
       </Snackbar>
