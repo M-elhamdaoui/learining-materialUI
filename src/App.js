@@ -4,6 +4,7 @@ import Feed from './Components/Feed'
 import Rightbar from './Components/Rightbar'
 import { Grid, makeStyles } from "@material-ui/core";
 import Navbar from "./Components/Navbar";
+import AddIcon from "./Components/AddIcon";
 
 const useStyles = makeStyles((theme) => ({
   right:{
@@ -28,6 +29,7 @@ function App() {
           <Rightbar/>
         </Grid>
       </Grid>
+      <AddIcon/>
     </div>
   );
 }
